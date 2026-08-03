@@ -76,7 +76,7 @@ export function ControlPanel({
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Target URL */}
+        
         <div className="col-span-1 sm:col-span-2 lg:col-span-2 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A] flex items-center space-x-1.5">
             <Globe className="w-3.5 h-3.5" />
@@ -112,7 +112,7 @@ export function ControlPanel({
           )}
         </div>
 
-        {/* Duration */}
+        
         <div className="col-span-1 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A] flex items-center justify-between">
             <span>Duration (sec)</span>
@@ -129,7 +129,7 @@ export function ControlPanel({
           />
         </div>
 
-        {/* Parallel Connections */}
+        
         <div className="col-span-1 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A] flex items-center justify-between">
             <span>Parallel Conns</span>
@@ -146,7 +146,7 @@ export function ControlPanel({
           />
         </div>
 
-        {/* Burst Pipelining Size */}
+        
         <div className="col-span-1 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A] flex items-center justify-between">
             <span>Burst Pipelining Size</span>
@@ -163,7 +163,7 @@ export function ControlPanel({
           />
         </div>
 
-        {/* HTTP Protocol */}
+        
         <div className="col-span-1 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A] flex items-center space-x-1.5">
             <Zap className="w-3.5 h-3.5" />
@@ -190,7 +190,7 @@ export function ControlPanel({
           </select>
         </div>
 
-        {/* HTTP Method */}
+        
         <div className="col-span-1 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A]">
             <span>HTTP Method</span>
@@ -220,7 +220,7 @@ export function ControlPanel({
           </select>
         </div>
 
-        {/* Load Pattern */}
+        
         <div className="col-span-1 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A] flex items-center space-x-1.5">
             <RefreshCw className="w-3.5 h-3.5" />
@@ -239,7 +239,7 @@ export function ControlPanel({
           </select>
         </div>
 
-        {/* Think Time (ms) */}
+        
         <div className="col-span-1 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A] flex items-center justify-between">
             <span>Think-Time (ms)</span>
@@ -256,7 +256,7 @@ export function ControlPanel({
           />
         </div>
 
-        {/* Jitter (ms) */}
+        
         <div className="col-span-1 space-y-2">
           <label className="text-xs font-bold uppercase tracking-widest text-[#0A0A0A] flex items-center justify-between">
             <span>Jitter (ms)</span>
@@ -273,7 +273,7 @@ export function ControlPanel({
           />
         </div>
 
-        {/* Toggles: WAF Bypass, Circuit Breaker & Response-Aware Adaptive Pacing */}
+        
         <div className="col-span-1 sm:col-span-2 lg:col-span-4 grid grid-cols-1 sm:grid-cols-3 gap-3 self-end pt-2">
           <div className="flex items-center justify-between bg-[#FDFDFD] border-2 border-[#0A0A0A] px-3 sm:px-4 py-2.5">
             <div className="flex items-center space-x-2 min-w-0">
@@ -318,7 +318,7 @@ export function ControlPanel({
           </div>
         </div>
 
-        {/* Adaptive Pacing Scaling Factor if enabled */}
+        
         {config.adaptiveThinkTimeEnabled && (
           <div className="col-span-1 sm:col-span-2 lg:col-span-4 bg-blue-50 border-2 border-[#0A0A0A] p-3 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div className="space-y-0.5">
@@ -345,7 +345,7 @@ export function ControlPanel({
           </div>
         )}
 
-        {/* Security Payload & WAF Testing Module */}
+        
         <div className="col-span-1 sm:col-span-2 lg:col-span-4 bg-[#FFF8F0] border-2 border-[#0A0A0A] p-4 space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-[#0A0A0A]/20 pb-2">
             <div className="flex items-center space-x-2">
@@ -415,7 +415,7 @@ export function ControlPanel({
           </div>
         </div>
 
-        {/* HTTP Protocol Mix System Configuration Sub-Panel */}
+        
         {config.protocol === 'MIXED' && (() => {
           const pMix = config.protocolMix || { 'http/1.1': 50, 'http/2': 40, 'http/3': 10 };
           const totalPWeight = Object.values(pMix).reduce((a, b) => a + (Number(b) || 0), 0);
@@ -459,7 +459,7 @@ export function ControlPanel({
                 </div>
               </div>
 
-              {/* Quick Protocol Presets */}
+              
               <div className="space-y-1.5">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">
                   Quick Protocol Presets:
@@ -500,7 +500,7 @@ export function ControlPanel({
                 </div>
               </div>
 
-              {/* Protocol Mix Sliders Grid */}
+              
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
                 {(['http/1.1', 'http/2', 'http/3'] as const).map((pKey) => {
                   const weightVal = pMix[pKey] ?? 0;
@@ -541,7 +541,7 @@ export function ControlPanel({
           );
         })()}
 
-        {/* Tor / Proxy Routing & IP Rotation */}
+        
         {(() => {
           const proxyConfig = config.proxyConfig || {
             enabled: false,
@@ -585,7 +585,7 @@ export function ControlPanel({
 
               {proxyConfig.enabled && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 border-t border-[#0A0A0A]/20">
-                  {/* Proxy Type */}
+                  
                   <div className="space-y-1">
                     <label className="text-[11px] font-bold uppercase tracking-wider text-slate-700">Proxy Protocol</label>
                     <select
@@ -600,7 +600,7 @@ export function ControlPanel({
                     </select>
                   </div>
 
-                  {/* Instance Count */}
+                  
                   <div className="space-y-1">
                     <label className="text-[11px] font-bold uppercase tracking-wider text-slate-700">
                       {proxyConfig.proxyType === 'Tor' ? 'Tor Instances (3-5)' : 'Instance Pool Count'}
@@ -616,7 +616,7 @@ export function ControlPanel({
                     />
                   </div>
 
-                  {/* Country Selection */}
+                  
                   <div className="space-y-1">
                     <label className="text-[11px] font-bold uppercase tracking-wider text-slate-700">Country Routing</label>
                     <select
@@ -639,7 +639,7 @@ export function ControlPanel({
                     </select>
                   </div>
 
-                  {/* Rotation Strategy */}
+                  
                   <div className="space-y-1">
                     <label className="text-[11px] font-bold uppercase tracking-wider text-slate-700">Rotation Strategy</label>
                     <select
@@ -655,7 +655,7 @@ export function ControlPanel({
                     </select>
                   </div>
 
-                  {/* Rotation Count (if strategy is every N requests) */}
+                  
                   {proxyConfig.rotationStrategy === 'ip-rotation-every-n-requests' && (
                     <div className="space-y-1">
                       <label className="text-[11px] font-bold uppercase tracking-wider text-slate-700">Rotate every N reqs</label>
@@ -671,7 +671,7 @@ export function ControlPanel({
                     </div>
                   )}
 
-                  {/* Custom Proxy List (if SOCKS5 or HTTP) */}
+                  
                   {proxyConfig.proxyType !== 'Tor' && (
                     <div className="col-span-1 sm:col-span-2 lg:col-span-4 space-y-1">
                       <label className="text-[11px] font-bold uppercase tracking-wider text-slate-700">Custom Proxy List (host:port or user:pass@host:port, one per line)</label>
@@ -691,7 +691,7 @@ export function ControlPanel({
           );
         })()}
 
-        {/* HTTP Method Mix System Configuration Sub-Panel */}
+        
         {config.httpMethod === 'MIXED' && (() => {
           const mix = config.methodMix || { GET: 70, POST: 20, PUT: 5, DELETE: 5, PATCH: 0, HEAD: 0 };
           const totalWeight = Object.values(mix).reduce((a, b) => a + (Number(b) || 0), 0);
@@ -735,7 +735,7 @@ export function ControlPanel({
                 </div>
               </div>
 
-              {/* Quick Mix Presets */}
+              
               <div className="space-y-1.5">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">
                   Quick Workload Presets:
@@ -776,7 +776,7 @@ export function ControlPanel({
                 </div>
               </div>
 
-              {/* Method Mix Sliders Grid */}
+              
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-1">
                 {(['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD'] as const).map((mKey) => {
                   const weightVal = mix[mKey] ?? 0;
@@ -817,7 +817,7 @@ export function ControlPanel({
           );
         })()}
 
-        {/* Custom HTTP Headers Section */}
+        
         {(() => {
           const [mode, setMode] = React.useState<'builder' | 'raw'>('builder');
           
@@ -853,7 +853,7 @@ export function ControlPanel({
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  {/* Mode Toggle */}
+                  
                   <div className="flex border border-[#0A0A0A] bg-white text-[10px] font-mono font-bold">
                     <button
                       type="button"
@@ -873,7 +873,7 @@ export function ControlPanel({
                 </div>
               </div>
 
-              {/* Header Quick Presets */}
+              
               <div className="flex flex-wrap items-center gap-1.5">
                 <span className="text-[10px] font-bold uppercase text-slate-500">Quick Presets:</span>
                 <button
@@ -1014,7 +1014,7 @@ export function ControlPanel({
           );
         })()}
 
-        {/* Dynamic Payload Templating & Request JSON Body (Used for POST, PUT & PATCH) */}
+        
         {(config.httpMethod === 'POST' || config.httpMethod === 'PUT' || config.httpMethod === 'PATCH' || config.httpMethod === 'MIXED') && (
           <div className="col-span-1 sm:col-span-2 lg:col-span-4 space-y-2 pt-2 border-t border-[#0A0A0A]/20">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
@@ -1025,7 +1025,7 @@ export function ControlPanel({
                 </span>
               </label>
 
-              {/* Dynamic Tag Insertion Buttons */}
+              
               <div className="flex flex-wrap items-center gap-1.5">
                 <span className="text-[10px] font-bold uppercase text-slate-500">Insert Tags:</span>
                 {[

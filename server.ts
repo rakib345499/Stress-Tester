@@ -10,16 +10,6 @@ import { createServer as createViteServer } from "vite";
 import { RealProxyPool as ProxyPool } from "./proxy-manager";
 import { SECURITY_PAYLOADS, SecurityStats } from "./src/security-payloads";
 
-/**
- * High-Performance Cluster-Based Load Testing & Stress Engine
- * 
- * Architecture Overview:
- * - Primary Process: Runs Express API, handles SSE broadcasts, aggregates stats from workers,
- *   manages Circuit Breaker state, and serves the Vite dev / static production bundle.
- * - Worker Processes: Multi-core workers spawned via `node:cluster`. Receive test configurations
- *   via IPC, maintain HTTP/1.1 & HTTP/2 connection pools, process full TTLB response bodies,
- *   and stream real-time metrics back to the Primary process.
- */
 
 // ==========================================
 // TYPE DEFINITIONS & CONSTANTS

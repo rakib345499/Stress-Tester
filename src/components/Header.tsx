@@ -34,13 +34,13 @@ export function Header({ isRunning, onOpenDisclaimer, theme, onChangeTheme }: He
           </button>
         </div>
       </div>
-      <div className="px-4 sm:px-8 py-4 sm:py-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
-        <div className="space-y-1">
+      <div className="px-4 sm:px-8 py-4 sm:py-6 flex flex-col xl:flex-row items-start xl:items-end justify-between gap-4">
+        <div className="space-y-1 min-w-0">
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-40 dark:text-white/60">Pipeline Instance v8.0</p>
-          <h1 className="text-2xl sm:text-4xl md:text-6xl font-black leading-none tracking-tighter text-[#0A0A0A] dark:text-white">XIO_STRESS_TESTER</h1>
+          <h1 className="text-2xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-none tracking-tighter text-[#0A0A0A] dark:text-white break-all sm:break-normal">XIO_STRESS_TESTER</h1>
         </div>
 
-        <div className="flex border-2 border-[#0A0A0A] dark:border-white bg-white dark:bg-[#0E0E0E] font-mono text-xs font-bold divide-x-2 divide-[#0A0A0A] dark:divide-white h-9 sm:h-10 self-start md:self-end">
+        <div className="flex-shrink-0 flex border-2 border-[#0A0A0A] dark:border-white bg-white dark:bg-[#0E0E0E] font-mono text-xs font-bold divide-x-2 divide-[#0A0A0A] dark:divide-white h-9 sm:h-10 self-start xl:self-end">
           <button
             type="button"
             onClick={() => onChangeTheme('light')}

@@ -1,5 +1,9 @@
 # 🛡️ WAF-Shield & Cluster Stress Testing Suite
 
+<p align="center">
+  <img src="https://pipeline-stress-tester.onrender.com/og-image.jpg" alt="XIO Stress Tester Performance Dashboard Banner" width="100%" style="border-radius: 12px; max-width: 800px;" />
+</p>
+
 > ### **"With great power comes great responsibility"**
 > *This suite is designed solely for authorized network analysis, latency benchmarking, and firewall/WAF resilience audits. Always ensure explicit permission before initiating probes.*
 
@@ -82,6 +86,107 @@ npm run dev
 ```
 
 The application will bind to `http://localhost:3000` automatically. Open the UI, accept the disclaimer modal, configure your attack intensity, and launch your WAF probe benchmarks!
+
+---
+
+## ☁️ Running on Google Cloud Console
+
+You can run and deploy this high-performance stress testing engine directly using the **Google Cloud Console** via **Cloud Shell**, **Cloud Run**, or **Compute Engine (VM)**.
+
+### Option A: Running in Google Cloud Shell (Quick & Easy)
+Cloud Shell provides a free, pre-configured VM with all tools installed.
+1. Open the [Google Cloud Console](https://console.cloud.google.com/).
+2. Click the **Activate Cloud Shell** button (top-right terminal icon 🐚).
+3. Run the following commands to clone and start the tester:
+   ```bash
+   # Clone the repository
+   git clone https://github.com/Quincunx33/Pipeline-Stress-Tester.git
+   cd Pipeline-Stress-Tester
+
+   # Install dependencies (using npm or bun)
+   npm install
+
+   # Build the bundle and start the server
+   npm run build
+   npm run start
+   ```
+4. Click the **Web Preview** button in the Cloud Shell toolbar (top right of the terminal window) and select **Preview on port 3000** to open the interactive UI!
+
+---
+
+### Option B: Deploying to Google Cloud Run (Recommended for Scalability)
+Cloud Run is a fully managed serverless platform that automatically scales containerized applications.
+1. Make sure you are logged in to your GCP project in Cloud Shell:
+   ```bash
+   gcloud config set project YOUR_PROJECT_ID
+   ```
+2. Enable the required Google APIs:
+   ```bash
+   gcloud services enable run.googleapis.com artifactregistry.googleapis.com
+   ```
+3. Deploy directly from the source code:
+   ```bash
+   gcloud run deploy pipeline-stress-tester \
+     --source . \
+     --port 3000 \
+     --allow-unauthenticated \
+     --region us-central1
+   ```
+4. Once completed, Google Cloud Run will provide a **Service URL** (e.g., `https://pipeline-stress-tester-xxx.run.app`). Open that URL in your browser to start stress testing!
+
+---
+
+### Option C: Running on a Compute Engine VM Instance
+If you want a dedicated machine with maximum outbound bandwidth and network throughput:
+1. Create a modern Debian-based VM instance with network access:
+   ```bash
+   gcloud compute instances create stress-tester-vm \
+     --image-family=debian-11 \
+     --image-project=debian-cloud \
+     --machine-type=e2-medium \
+     --tags=http-server,stress-tester-port \
+     --metadata=startup-script="curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs git && npm install -g pm2"
+   ```
+2. Create a firewall rule to allow traffic on port 3000 (if you want to access the UI from your local computer's browser):
+   ```bash
+   gcloud compute firewall-rules create allow-stress-tester \
+     --allow=tcp:3000 \
+     --target-tags=stress-tester-port
+   ```
+3. SSH into your newly created VM:
+   ```bash
+   gcloud compute ssh stress-tester-vm
+   ```
+4. Inside the VM, clone and run with PM2 (daemon process manager):
+   ```bash
+   git clone https://github.com/Quincunx33/Pipeline-Stress-Tester.git
+   cd Pipeline-Stress-Tester
+   npm install
+   npm run build
+   pm2 start dist/server.cjs --name stress-tester
+   ```
+5. Open your browser and go to `http://<YOUR_VM_EXTERNAL_IP>:3000`.
+
+---
+
+## 🤖 Manus AI তে হোস্টিং ও ডেপ্লয়মেন্ট প্রম্পট (Manus AI Hosting Prompt)
+
+Manus AI এজেন্টের মাধ্যমে এই ফুল-স্ট্যাক অ্যাপ্লিকেশনটি (React + Express) যেকোনো ক্লাউড প্ল্যাটফর্মে (যেমন: **Render**, **Railway**, **Zeabur**, বা **Heroku**) সহজেই ডেপ্লয় করতে পারেন। 
+
+Manus AI চ্যাটে নিচের যেকোনো একটি প্রম্পট কপি করে সেন্ড করুন:
+
+### 📝 প্রম্পট ১: Render-এ অটো-ডেপ্লয়মেন্ট (অত্যন্ত সহজ)
+> "Hey Manus AI, please clone this full-stack React and Express app from the repository: https://github.com/Quincunx33/Pipeline-Stress-Tester
+> I want you to host/deploy this on Render for me.
+> - Build command: `npm run build` or `bun run build`
+> - Start command: `npm run start` or `bun run start` (it runs `node dist/server.cjs`)
+> - Port: `3000` (Make sure the environment routes external traffic to port 3000)
+> Please guide me through the deployment and give me the live website link once done."
+
+### 📝 প্রম্পট ২: Railway / Zeabur বা অন্য কোনো হোস্টিং-এ ডেপ্লয়মেন্ট
+> "Hey Manus, deploy this pipeline stress tester application to Railway (or Zeabur): https://github.com/Quincunx33/Pipeline-Stress-Tester
+> It is a Node.js full-stack app with React Vite frontend and Express backend. 
+> The start command is `node dist/server.cjs` which runs on port 3000. Please complete the deployment automatically and share the live URL."
 
 ---
 

@@ -27,7 +27,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
 
   return (
     <div className="space-y-6">
-      {/* Progress Bar & Timer */}
+      
       {state.running && (
         <div className="bg-white border-2 border-[#0A0A0A] p-4 space-y-2">
           <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-[#0A0A0A]">
@@ -46,9 +46,9 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
         </div>
       )}
 
-      {/* Primary Metrics Grid */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
-        {/* Current RPS */}
+        
         <div className="bg-white border-2 border-[#0A0A0A] p-4 sm:p-5 relative overflow-hidden">
           <div className="flex items-center justify-between text-[#0A0A0A] mb-2">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Current RPS</span>
@@ -62,7 +62,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
           </div>
         </div>
 
-        {/* Total Requests */}
+        
         <div className="bg-white border-2 border-[#0A0A0A] p-4 sm:p-5 relative overflow-hidden">
           <div className="flex items-center justify-between text-[#0A0A0A] mb-2">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Total Requests</span>
@@ -76,7 +76,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
           </div>
         </div>
 
-        {/* Latency Percentiles */}
+        
         <div className="bg-white border-2 border-[#0A0A0A] p-4 sm:p-5 relative overflow-hidden">
           <div className="flex items-center justify-between text-[#0A0A0A] mb-2">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Latency (P50/P95)</span>
@@ -96,7 +96,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
           </div>
         </div>
 
-        {/* Success Rate */}
+        
         <div className="bg-white border-2 border-[#0A0A0A] p-4 sm:p-5 relative overflow-hidden">
           <div className="flex items-center justify-between text-[#0A0A0A] mb-2">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Success Rate</span>
@@ -110,7 +110,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
           </div>
         </div>
 
-        {/* Bytes Transferred & Received */}
+        
         <div className="bg-white border-2 border-[#0A0A0A] p-4 sm:p-5 relative overflow-hidden sm:col-span-2 lg:col-span-1">
           <div className="flex items-center justify-between text-[#0A0A0A] mb-2">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Network I/O</span>
@@ -125,7 +125,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
         </div>
       </div>
 
-      {/* Security WAF Testing Telemetry Card */}
+      
       {Boolean(state.testMode && state.testMode !== 'normal') && (
         <div className="bg-[#FFF8F0] border-2 border-[#0A0A0A] p-4 space-y-3">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs font-black uppercase tracking-[0.15em] text-[#0A0A0A] border-b border-[#0A0A0A]/20 pb-2 gap-2">
@@ -157,7 +157,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
         </div>
       )}
 
-      {/* HTTP Protocol Mix System Traffic Tracker */}
+      
       {state.protocolCounts && Object.values(state.protocolCounts).some(c => c > 0) && (
         <div className="bg-white border-2 border-[#0A0A0A] p-4 space-y-3">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs font-black uppercase tracking-[0.15em] text-[#0A0A0A] border-b border-[#0A0A0A]/20 pb-2 gap-2">
@@ -206,7 +206,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
         </div>
       )}
 
-      {/* HTTP Method Mix System Traffic Tracker */}
+      
       {state.methodCounts && Object.values(state.methodCounts).some(c => c > 0) && (
         <div className="bg-white border-2 border-[#0A0A0A] p-4 space-y-3">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs font-black uppercase tracking-[0.15em] text-[#0A0A0A] border-b border-[#0A0A0A]/20 pb-2 gap-2">
@@ -264,7 +264,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
         </div>
       )}
 
-      {/* HTTP Response Status Breakdown */}
+      
       {state.statusCodes && Object.keys(state.statusCodes).length > 0 && (
         <div className="bg-white border-2 border-[#0A0A0A] p-4 space-y-3">
           <div className="flex items-center justify-between text-xs font-black uppercase tracking-[0.15em] text-[#0A0A0A]">
@@ -289,7 +289,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
             })}
           </div>
 
-          {/* Diagnostic Note when 429/403/503 occur */}
+          
           {(state.statusCodes['429'] || state.statusCodes['403'] || state.statusCodes['503'] || state.statusCodes['TIMEOUT']) && (
             <div className="bg-amber-50 border border-amber-300 p-2.5 text-xs text-amber-900 font-mono space-y-1">
               <span className="font-bold uppercase tracking-wider block">⚡ ডায়াগনস্টিক নোট (Adaptive Engine Active):</span>
@@ -301,9 +301,9 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
         </div>
       )}
 
-      {/* Charts & Terminal Logs */}
+      
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Live RPS Chart */}
+        
         <div className="lg:col-span-2 bg-white border-2 border-[#0A0A0A] p-6 space-y-4">
           <div className="flex items-center justify-between border-b border-[#0A0A0A] pb-3">
             <h3 className="text-xs font-black uppercase tracking-[0.2em]">Requests Per Second (RPS)</h3>
@@ -340,7 +340,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
           </div>
         </div>
 
-        {/* Live Logs Terminal */}
+        
         <div className="bg-[#0A0A0A] text-white border-2 border-[#0A0A0A] p-6 flex flex-col space-y-4">
           <div className="flex flex-col space-y-2 border-b border-white/20 pb-3">
             <div className="flex items-center justify-between">
@@ -351,7 +351,7 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
               <span className="text-[10px] font-mono opacity-65">{filteredLogs.length} entries</span>
             </div>
 
-            {/* Filter buttons */}
+            
             <div className="flex items-center space-x-1 pt-1 overflow-x-auto">
               <Filter className="w-3 h-3 text-white/50" />
               {(['ALL', 'INFO', 'SUCCESS', 'WARNING', 'ERROR'] as const).map((level) => (
