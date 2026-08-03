@@ -317,19 +317,19 @@ export function LiveDashboard({ state }: LiveDashboardProps) {
                 <AreaChart data={state.history}>
                   <defs>
                     <linearGradient id="rpsGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#0A0A0A" stopOpacity={0.8} />
-                      <stop offset="95%" stopColor="#0A0A0A" stopOpacity={0.05} />
+                      <stop offset="5%" stopColor="var(--chart-stroke)" stopOpacity={0.8} />
+                      <stop offset="95%" stopColor="var(--chart-stroke)" stopOpacity={0.05} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                  <XAxis dataKey="time" stroke="#0A0A0A" fontSize={11} tickFormatter={(t) => `${t}s`} />
-                  <YAxis stroke="#0A0A0A" fontSize={11} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
+                  <XAxis dataKey="time" stroke="var(--chart-stroke)" fontSize={11} tickFormatter={(t) => `${t}s`} />
+                  <YAxis stroke="var(--chart-stroke)" fontSize={11} />
                   <Tooltip
-                    contentStyle={{ backgroundColor: '#0A0A0A', borderColor: '#0A0A0A', borderRadius: '0px', color: '#ffffff', fontFamily: 'monospace' }}
+                    contentStyle={{ backgroundColor: '#0A0A0A', borderColor: 'var(--chart-stroke)', borderRadius: '0px', color: '#ffffff', fontFamily: 'monospace' }}
                     formatter={(value: any) => [`${value} req/s`, 'RPS']}
                     labelFormatter={(label) => `Time: ${label}s`}
                   />
-                  <Area type="monotone" dataKey="rps" stroke="#0A0A0A" strokeWidth={3} fillOpacity={1} fill="url(#rpsGradient)" />
+                  <Area type="monotone" dataKey="rps" stroke="var(--chart-stroke)" strokeWidth={3} fillOpacity={1} fill="url(#rpsGradient)" />
                 </AreaChart>
               </ResponsiveContainer>
             ) : (

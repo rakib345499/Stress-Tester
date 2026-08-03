@@ -7,6 +7,40 @@ import { DisclaimerModal } from './components/DisclaimerModal';
 import { TestConfig, TestState } from './types';
 
 export default function App() {
+  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>(() => {
+    return (localStorage.getItem('theme') as 'light' | 'dark' | 'system') || 'system';
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    const applyTheme = (currentTheme: 'light' | 'dark') => {
+      if (currentTheme === 'dark') {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+    };
+
+    if (theme === 'system') {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      applyTheme(systemTheme);
+
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const listener = (e: MediaQueryListEvent) => {
+        applyTheme(e.matches ? 'dark' : 'light');
+      };
+      mediaQuery.addEventListener('change', listener);
+      return () => mediaQuery.removeEventListener('change', listener);
+    } else {
+      applyTheme(theme);
+    }
+  }, [theme]);
+
+  const handleThemeChange = (newTheme: 'light' | 'dark' | 'system') => {
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
   const [config, setConfig] = useState<TestConfig>({
     target: '',
     duration: 30,
@@ -149,10 +183,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] text-[#0A0A0A] flex flex-col font-sans border-[4px] sm:border-[8px] md:border-[12px] border-[#0A0A0A] selection:bg-[#0A0A0A] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#FDFDFD] text-[#0A0A0A] dark:bg-[#0A0A0A] dark:text-white flex flex-col font-sans border-[4px] sm:border-[8px] md:border-[12px] border-[#0A0A0A] dark:border-[#FDFDFD] selection:bg-[#0A0A0A] dark:selection:bg-white dark:selection:text-[#0A0A0A] selection:text-white overflow-x-hidden transition-colors duration-200">
       <Header
         isRunning={testState.running}
         onOpenDisclaimer={() => setIsDisclaimerOpen(true)}
+        theme={theme}
+        onChangeTheme={handleThemeChange}
       />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-4 sm:py-8 space-y-6 sm:space-y-8">
@@ -172,7 +208,7 @@ export default function App() {
         )}
       </main>
 
-      <footer className="bg-[#0A0A0A] text-white px-8 py-4 flex flex-col sm:flex-row justify-between items-center border-t-2 border-[#0A0A0A]">
+      <footer className="bg-[#0A0A0A] text-white px-8 py-4 flex flex-col sm:flex-row justify-between items-center border-t-2 border-[#0A0A0A] dark:border-white">
         <div className="flex gap-8 items-center">
           <div className="flex items-center gap-2">
             <div className="h-2.5 w-2.5 bg-[#00FF00]"></div>
