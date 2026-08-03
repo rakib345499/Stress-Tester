@@ -9,8 +9,10 @@
 
 ---
 
-## 🌟 Special Thanks to our AI Cohorts
-This application was engineered with state-of-the-art developer guidance and synthesis from:
+## 🌟 Special Thanks
+
+We would like to express our gratitude and appreciation to the following state-of-the-art AI systems and developer tools for their exceptional guidance, synthesis, and support throughout the engineering of this application:
+
 *   **Gemini** (Google DeepMind)
 *   **DeepSeek**
 *   **ChatGPT** (OpenAI)
@@ -169,13 +171,13 @@ If you want a dedicated machine with maximum outbound bandwidth and network thro
 
 ---
 
-## 🤖 Manus AI তে হোস্টিং ও ডেপ্লয়মেন্ট প্রম্পট (Manus AI Hosting Prompt)
+## 🤖 Manus AI Hosting & Deployment Prompts
 
-Manus AI এজেন্টের মাধ্যমে এই ফুল-স্ট্যাক অ্যাপ্লিকেশনটি (React + Express) যেকোনো ক্লাউড প্ল্যাটফর্মে (যেমন: **Render**, **Railway**, **Zeabur**, বা **Heroku**) সহজেই ডেপ্লয় করতে পারেন। 
+You can use the **Manus AI** agent to easily host and deploy this full-stack application (React + Express) on any cloud platform such as **Render**, **Railway**, **Zeabur**, or **Heroku**.
 
-Manus AI চ্যাটে নিচের যেকোনো একটি প্রম্পট কপি করে সেন্ড করুন:
+Simply copy and send one of the following prompts in the Manus AI chat:
 
-### 📝 প্রম্পট ১: Render-এ অটো-ডেপ্লয়মেন্ট (অত্যন্ত সহজ)
+### 📝 Prompt 1: Auto-Deployment to Render (Very Easy)
 > "Hey Manus AI, please clone this full-stack React and Express app from the repository: https://github.com/Quincunx33/Pipeline-Stress-Tester
 > I want you to host/deploy this on Render for me.
 > - Build command: `npm run build` or `bun run build`
@@ -183,7 +185,7 @@ Manus AI চ্যাটে নিচের যেকোনো একটি প�
 > - Port: `3000` (Make sure the environment routes external traffic to port 3000)
 > Please guide me through the deployment and give me the live website link once done."
 
-### 📝 প্রম্পট ২: Railway / Zeabur বা অন্য কোনো হোস্টিং-এ ডেপ্লয়মেন্ট
+### 📝 Prompt 2: Auto-Deployment to Railway, Zeabur, or any other Hosting
 > "Hey Manus, deploy this pipeline stress tester application to Railway (or Zeabur): https://github.com/Quincunx33/Pipeline-Stress-Tester
 > It is a Node.js full-stack app with React Vite frontend and Express backend. 
 > The start command is `node dist/server.cjs` which runs on port 3000. Please complete the deployment automatically and share the live URL."
