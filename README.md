@@ -158,7 +158,7 @@ Open `http://localhost:3000` to start tuning your load benchmarks.
 
 ## 🌟 Special Thanks & Core Attributions
 
-We are immensely grateful to the following cutting-edge AI systems, advanced language models, and developer ecosystems for their exceptional design synthesis, code generation, and diagnostic assistance during the development of this engine:
+Iam immensely grateful to the following cutting-edge AI systems, advanced language models, and developer ecosystems for their exceptional design synthesis, code generation, and diagnostic assistance during the development of this project:
 
 *   **Gemini** (Google DeepMind)
 *   **DeepSeek**
