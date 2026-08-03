@@ -4,9 +4,6 @@
   <img src="https://pipeline-stress-tester.onrender.com/og-image.jpg" alt="XIO Stress Tester Performance Dashboard Banner" width="100%" style="border-radius: 12px; max-width: 800px;" />
 </p>
 
-> ### **"With great power comes great responsibility"**
-> *This suite is designed solely for authorized network analysis, latency benchmarking, and firewall/WAF resilience audits. Always ensure explicit permission before initiating probes.*
-
 ---
 
 ## 🌟 Special Thanks
@@ -87,7 +84,7 @@ npm install
 npm run dev
 ```
 
-The application will bind to `http://localhost:3000` automatically. Open the UI, accept the disclaimer modal, configure your attack intensity, and launch your WAF probe benchmarks!
+The application will bind to `http://localhost:3000` automatically. Open the UI, configure your attack intensity, and launch your WAF probe benchmarks!
 
 ---
 
@@ -168,27 +165,6 @@ If you want a dedicated machine with maximum outbound bandwidth and network thro
    pm2 start dist/server.cjs --name stress-tester
    ```
 5. Open your browser and go to `http://<YOUR_VM_EXTERNAL_IP>:3000`.
-
----
-
-## 🤖 Manus AI Hosting & Deployment Prompts
-
-You can use the **Manus AI** agent to easily host and deploy this full-stack application (React + Express) on any cloud platform such as **Render**, **Railway**, **Zeabur**, or **Heroku**.
-
-Simply copy and send one of the following prompts in the Manus AI chat:
-
-### 📝 Prompt 1: Auto-Deployment to Render (Very Easy)
-> "Hey Manus AI, please clone this full-stack React and Express app from the repository: https://github.com/Quincunx33/Pipeline-Stress-Tester
-> I want you to host/deploy this on Render for me.
-> - Build command: `npm run build` or `bun run build`
-> - Start command: `npm run start` or `bun run start` (it runs `node dist/server.cjs`)
-> - Port: `3000` (Make sure the environment routes external traffic to port 3000)
-> Please guide me through the deployment and give me the live website link once done."
-
-### 📝 Prompt 2: Auto-Deployment to Railway, Zeabur, or any other Hosting
-> "Hey Manus, deploy this pipeline stress tester application to Railway (or Zeabur): https://github.com/Quincunx33/Pipeline-Stress-Tester
-> It is a Node.js full-stack app with React Vite frontend and Express backend. 
-> The start command is `node dist/server.cjs` which runs on port 3000. Please complete the deployment automatically and share the live URL."
 
 ---
 
