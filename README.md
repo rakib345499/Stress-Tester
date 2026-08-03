@@ -5,20 +5,38 @@
 
 ---
 
+## ⚠️ CRITICAL WARNING & LEGAL DISCLAIMER
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│                               ⚠️ WARNING ⚠️                              │
+│                                                                          │
+│  THIS SOFTWARE GENERATES MALICIOUS SIGNATURES (SQLi, XSS, COMD, ETC.)    │
+│  AND HIGH-VOLUME TRAFFIC DESIGNED TO TEST WEB APPLICATION FIREWALLS.     │
+│                                                                          │
+│  1. ONLY run this tool against web servers you own or have explicit      │
+│     written authorization to test.                                       │
+│  2. Unauthorized stress testing can be classified as a Denial of         │
+│     Service (DoS) attack and carries severe criminal/legal penalties.    │
+│  3. The developers assume NO liability for misuse or network damage.     │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## 🌟 Special Thanks to our AI Cohorts
-This application was engineered with state-of-the-art developer guidance and synthesis from:
-*   **Gemini** (Google DeepMind)
-*   **DeepSeek**
-*   **ChatGPT** (OpenAI)
-*   **Claude** (Anthropic)
-*   **Grok** (xAI)
-*   **Kimi** (Moonshot)
-*   **Manus**
-*   **GitHub Copilot**
-*   **Codeium**
-*   **Tabnine**
-*   **StarCoder**
-*   **CodeLlama**
+This application was engineered with state-of-the-art developer guidance, code-generation assistance, and strategic synthesis from these prominent AI models:
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│                           AI CONTRIBUTORS ENGINE                         │
+├─────────────────┬─────────────────┬──────────────────┬───────────────────┤
+│    ♊ Gemini    │   🐳 DeepSeek   │   🧠 ChatGPT     │   🎨 Claude       │
+├─────────────────┼─────────────────┼──────────────────┼───────────────────┤
+│    🌌 Grok      │   🚀 Kimi       │   🤖 Manus       │   💻 GitHub Copilot  │
+├─────────────────┼─────────────────┼──────────────────┼───────────────────┤
+│    ⚡ Codeium   │   🎯 Tabnine    │   ⭐ StarCoder   │   🦙 CodeLlama    │
+└─────────────────┴─────────────────┴──────────────────┴───────────────────┘
+```
 
 ---
 
@@ -26,14 +44,46 @@ This application was engineered with state-of-the-art developer guidance and syn
 
 This advanced benchmarking utility marries real-time cluster-based stress-testing with highly configurable security injection techniques. Test how your web application, content delivery network (CDN), Web Application Firewall (WAF), or Cloudflare integration performs under extreme stress and malicious load.
 
+### 📐 Traffic & Request Flow Architecture
+
 ```
-┌────────────────────────────────────────────────────────┐
-│                  STRESS BENCHMARK ENGINE               │
-│                                                        │
-│  [HTTP/1.1] ───► ┌─────────────────────────┐ ───► WAF   │
-│  [HTTP/2]   ───► │   PAYLOAD INJECTOR      │ ───► BLOCKED │
-│  [HTTP/3]   ───► └─────────────────────────┘ ───► ALLOWED │
-└────────────────────────────────────────────────────────┘
+                 ┌──────────────────────────────────────┐
+                 │         Stress Control Panel         │
+                 │   - Configure Protocols (H1/H2/H3)   │
+                 │   - Set Concurrency & Core Clusters  │
+                 │   - Choose Security Injections       │
+                 └──────────────────┬───────────────────┘
+                                    │
+                                    ▼
+                 ┌──────────────────────────────────────┐
+                 │       Express Cluster Spawner        │
+                 │     (Parallel HTTP Worker Pools)     │
+                 └──────────────────┬───────────────────┘
+                                    │
+            ┌───────────────────────┼───────────────────────┐
+            ▼                       ▼                       ▼
+   ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+   │  Worker (H1.1)  │     │   Worker (H2)   │     │   Worker (H3)   │
+   │  Normal Headers │     │  Query Inject   │     │  Payload Inject │
+   └────────┬────────┘     └────────┬────────┘     └────────┬────────┘
+            │                       │                       │
+            └───────────────────────┼───────────────────────┘
+                                    │ (Outbound Probes)
+                                    ▼
+                      ┌───────────────────────────┐
+                      │    Target Gateway / WAF   │
+                      │  (Cloudflare, AWS, etc.)  │
+                      └─────────────┬─────────────┘
+                                    │
+                   ┌────────────────┴────────────────┐
+                   ▼                                 ▼
+         [ Malicious Signature ]              [ Clean Requests ]
+                   │                                 │
+                   ▼                                 ▼
+       ┌───────────────────────┐         ┌───────────────────────┐
+       │   WAF BLOCKED STATE   │         │    ALLOWED STATUS     │
+       │   (403 Forbidden)     │         │   (200 OK / Response) │
+       └───────────────────────┘         └───────────────────────┘
 ```
 
 ### 🎯 1. Security Test Modes
@@ -55,6 +105,18 @@ This advanced benchmarking utility marries real-time cluster-based stress-testin
 ---
 
 ## 📊 Telemetry & Live Interactive Analytics
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        REAL-TIME SSE MONITOR                           │
+├───────────────────────────────────┬────────────────────────────────────┤
+│  ⚡ ACTIVE METRIC                  │  📈 GRAPH VALUE                    │
+├───────────────────────────────────┼────────────────────────────────────┤
+│  Request Success Rate             │  [██████████████████████░]  94%    │
+│  WAF Blocked Signature Probes     │  [████████████░░░░░░░░░░░]  48%    │
+│  Worker Thread Latency            │  14 ms                             │
+└───────────────────────────────────┴────────────────────────────────────┘
+```
 
 ### **Dashboard View**
 *   **Real-time SSE Streams**: Visual charts showing Request Success Rate, CPU, and Latency profiles.
@@ -85,4 +147,4 @@ The application will bind to `http://localhost:3000` automatically. Open the UI,
 
 ---
 
-*Developed with ❤️ to protect and fortify web infrastructures globally.*
+*Developed with ❤️ to protect, harden, and fortify web infrastructures globally.*
