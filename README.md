@@ -30,7 +30,7 @@ By combining massive connection concurrency with multi-layered, evasive vulnerab
 │                      XIO CORE ENGINE FLOW                       │
 │                                                                 │
 │  [HTTP/1.1 Pipelining] ──┐                                      │
-│  [HTTP/2 Multiplexing] ──┼─► [Payloader Injector] ──► Target WAF │
+│  [HTTP/2 Multiplexing] ──┼─► [Payloader Injector] ──► Target WAF│
 │  [HTTP/3 UDP Stream]   ──┘                                      │
 └─────────────────────────────────────────────────────────────────┘
 ```
