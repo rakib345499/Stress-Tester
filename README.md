@@ -25,6 +25,15 @@ By combining massive connection concurrency with multi-layered, evasive vulnerab
 
 ## 🚀 Key Highlights & Engine Capabilities
 
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      XIO CORE ENGINE FLOW                       │
+│                                                                 │
+│  [HTTP/1.1 Pipelining] ──┐                                      │
+│  [HTTP/2 Multiplexing] ──┼─► [Payloader Injector] ──► Target WAF│
+│  [HTTP/3 UDP Stream]   ──┘                                      │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ### 🎯 1. Advanced Traffic Engineering
 *   **HTTP/1.1 Pipelining**: Sends multiple HTTP requests over a single socket connection without waiting for responses, exposing latency/TTLB issues.
